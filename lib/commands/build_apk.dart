@@ -12,19 +12,11 @@ class BuildApkCommand extends Command {
   String get name => 'buildapk';
 
   BuildApkCommand() {
-    argParser.addFlag('release', abbr: 'r',negatable: false);
+    // argParser.addFlag('release', abbr: 'r', negatable: false);
   }
 
   @override
   FutureOr? run() async {
-    var argsList = ['build', 'apk'];
-
-    if (argResults?.wasParsed('release') ?? false) {
-      print('::: release was parsed :::');
-    } else {
-      print('::: release wasn\'t parsed :::');
-    }
-
     final process =
         await Process.start('flutter', ['build', 'apk'], runInShell: true);
 
